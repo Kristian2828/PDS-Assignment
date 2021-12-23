@@ -2,10 +2,18 @@ library(shiny)
 library(plotly)
 library(DT)
 library(shinythemes)
+library(ggcorrplot)
+library(correlation)
 
+## Read files
 covid = read.csv("covid_data.csv", sep = ';')
+eco_data <- read.csv("Economic_Data.csv")
+
+## Change/update the varaible structure
 covid$Date = as.Date(covid$Date)
 covid$Country = as.factor(covid$Country)
+eco_data$Country = as.factor(eco_data$Country)
+eco_data$Date = as.Date(eco_data$Date)
 
 ui <- fluidPage(
   theme = shinytheme("cerulean"),
@@ -87,7 +95,49 @@ chest pain.",br(),
 ),
 
   tabPanel("Economy", value = "Economy",
+           
+             sidebarLayout(
+               sidebarPanel(
+                 h1("ASEAN Economic Impact under Covid-19 Pandemic"),
+                 selectInput(inputId = "eco_factor", label = "Category",
+                             choices = c("GDP","Unemployment_Rate", "Index_Movement"),
+                             selected = "New_Cases"),
+                 dateRangeInput(inputId = "range", label = "Select a Timeframe:",
+                                start = min(eco_data$Date),
+                                end   = max(eco_data$Date)),
+                 selectInput(inputId = "Country_eco", "Country(s)",
+                             choices = eco_data$Country,
+                             multiple = TRUE,
+                             selected = c("Malaysia")),
+                 downloadButton(outputId = "download_data_eco", label = "Download"),
+               ),
+               mainPanel(
+                 plotlyOutput(outputId = "plot_eco"), br(),
+                 strong(em("Economic Impact under Covid-19 Pandemic")),
+                 br(), br(), br(),
+                 DT::dataTableOutput(outputId = "table_eco")
+               )
+             )
 ),
+    
+     ##Tab Panel - Summary
+    tabPanel("Summary", value = "Summary",
+             sidebarLayout(
+               sidebarPanel(
+                 h1("Summary for Variables Statistical Analysis"),
+                 selectInput(inputId = "Country_sum", "Country(s)",
+                             choices = eco_data$Country,
+                             multiple = TRUE,
+                             selected = c("Malaysia", "Singapore", "Indonesia", "Philippines", "Thailand", "Vietnam")), 
+                 downloadButton(outputId = "download_data_sum", label = "Download"),
+               ),
+               mainPanel(
+                 plotlyOutput(outputId = "plot_sum"), br(),
+                 strong(em("Correlation of Variables (per quarter)")),
+                 br(), br(), br(),
+                 verbatimTextOutput(outputId = "sum_view")
+               )
+             )),
 
   tabPanel("About us", value = "About us",
            sidebarLayout(
@@ -122,6 +172,72 @@ server <- function(input, output) {
       write.csv(data, file, row.names = FALSE)
     }
   )
+  
+  #Economic
+  ##Filter Data
+  filtered_data_eco <- reactive({
+    subset(eco_data,
+           Country %in% input$Country_eco &
+           Date >= as.Date(input$range[1]) & Date <=as.Date(input$range[2]))})
+  
+  ##Plot
+  output$plot_eco <- renderPlotly({
+    ggplotly({
+    p <- ggplot(filtered_data_eco(),aes_string(x = "Date", y = input$eco_factor, color = "Country")) + 
+      geom_point(alpha = 0.8) + theme(legend.position = "none") + geom_line(alpha=0.2)
+    
+    p
+      })
+    })
+  
+  ##Table
+  output$table_eco <- DT::renderDataTable({
+    filtered_data_eco()[1:7]
+  })
+  
+  ##Download
+  output$download_data_eco <- downloadHandler(
+    filename = "download_data.csv",
+    content = function(file) {
+      data <- filtered_data_eco()
+      write.csv(data, file, row.names = FALSE)
+    }
+  )
+  
+  
+  #Summary
+  ##Filter Data
+  filtered_data_sum <- reactive({
+    subset(eco_data,
+           Country %in% input$Country_sum) 
+             })
+         
+  ##Plot
+  output$plot_sum <- renderPlotly({
+    ggcorrplot(
+    cor(filtered_data_sum()[5:9]), lab = TRUE, digits = 2
+    )
+  })
+
+  
+  ##Table (https://statsandr.com/blog/correlation-coefficient-and-correlation-test-in-r/#between-two-variables)
+  output$sum_view <- renderPrint({
+    summary(filtered_data_sum()[5:9])
+    correlation::correlation(filtered_data_sum()[5:9],
+                             include_factors = TRUE, method = "auto"
+    )
+  })
+
+
+  ##Download
+  output$download_data_sum <- downloadHandler(
+    filename = "download_data.csv",
+    content = function(file) {
+      data <- filtered_data_sum()
+      write.csv(data, file, row.names = FALSE)
+    }
+  )
+
   
 }
 
