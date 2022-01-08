@@ -130,13 +130,11 @@ tabPanel("Vaccinnation", value = "Vaccination",
              
              verbatimTextOutput("stats"),
              
-             br(),br(),br(),br(),br(),br(),br(),
-             br(),br(),br(),br(),br(),br(),br(),
-             hr(),
+             br(),
              
              downloadButton(outputId = "download_data_vaccine", label = "Download"),
              
-             helpText("All data are retrieved from Our World in Data")    
+             helpText(em("Data is retrieved from www.worldometers.info")    
            ),
            
            mainPanel(
