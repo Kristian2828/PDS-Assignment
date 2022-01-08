@@ -179,7 +179,7 @@ tabPanel("Vaccinnation", value = "Vaccination",
            
              sidebarLayout(
                sidebarPanel(
-                 h1("COVID-19 Economic Impact in SEA"),
+                 h1("Economic Impact in SEA"),
                  selectInput(inputId = "eco_factor", label = "Category",
                              choices = c("GDP","Unemployment_Rate", "Index_Movement"),
                              selected = "New_Cases"),
