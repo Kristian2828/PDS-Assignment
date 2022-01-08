@@ -45,7 +45,7 @@ The virus can spread from an infected person’s mouth or nose in small liquid p
         
         mainPanel(
           tabsetPanel(
-            tabPanel(strong("Prevention"), strong(h5("To prevent infection and to slow transmission of COVID-19, do the following:")), br(),
+            tabPanel(strong("Prevention"), strong(h5("To prevent infection and to slow transmission of COVID-19, do the following:")),
 "1. Get vaccinated when a vaccine is available to you.", br(),
 "2. Stay at least 1 metre apart from others, even if they don't appear to be sick.", br(),
 "3. Wear a properly fitted mask when physical distancing is not possible or when in poorly ventilated settings.", br(),
