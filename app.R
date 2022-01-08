@@ -54,14 +54,14 @@ The virus can spread from an infected person’s mouth or nose in small liquid p
 "6. Cover your mouth and nose when coughing or sneezing.", br(),
 "7. If you feel unwell, stay home and self-isolate until you recover."),
             
-            tabPanel(strong("Symptoms"),h5(strong(em("COVID-19")), "affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization."),
+            tabPanel(strong("Symptoms"),h5(strong(em("COVID-19")), "affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization."),br(),
 
-strong(h4("Most common symptoms:")),
+strong(h5("Most common symptoms:")),
 
 "1. Fever",br(),"2. Cough",br(),"3. Tiredness",br(),"4. Loss of taste or smell.",br(),"5. Less common symptoms:",br(), "6. Sore throat",br(),"7. Headache", "8. Aches and pains", br(),"9. Diarrhoea",
 br(),"9. A rash on skin, or discolouration of fingers or toes", br(), "10. Red or irritated eyes.",
 br(),
-strong(h4("Serious symptoms:")),
+strong(h5("Serious symptoms:")),
 
 "1. Difficulty breathing or shortness of breath
 loss of speech or mobility, or confusion
