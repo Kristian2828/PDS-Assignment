@@ -132,9 +132,9 @@ tabPanel("Vaccinnation", value = "Vaccination",
              
              br(),
              
-             downloadButton(outputId = "download_data_vaccine", label = "Download")
+             downloadButton(outputId = "download_data_vaccine", label = "Download"),br(),br(), em("Data is retrieved from www.worldometers.info"),
              
-             helpText(em("Data is retrieved from www.worldometers.info")    
+             #helpText(em("Data is retrieved from www.worldometers.info")
            ),
            
            mainPanel(
