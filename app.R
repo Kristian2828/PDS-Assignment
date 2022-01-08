@@ -142,32 +142,32 @@ tabPanel("Vaccinnation", value = "Vaccination",
                          tabPanel(strong("Vaccination Plot"), br(), br(), plotlyOutput(outputId = "Agraph"),
                                   br(),br(),
                                   plotlyOutput(outputId = "Tgraph")),
-                         tabPanel("Vaccination Table", h4(em("COVID-19 VACCINATIONS IN SOUTH EAST ASIA")), align = "center"),br(), 
+                         tabPanel("Vaccination Table", h4(em("COVID-19 VACCINATIONS IN SOUTH EAST ASIA")),br(), 
                                   DT::dataTableOutput("table_vaccine")),
-                         tabPanel("About Vaccine", strong(h2("The Immune System - the Body's Defense Against Infection")),br(),
+                         tabPanel("About Vaccine", strong(h3("The Immune System - the Body's Defense Against Infection")),br(),
                                   "To understand how COVID-19 vaccines work, it helps to first look at how our bodies fight illness. When germs, such as the virus that causes COVID-19, invade our bodies, 
                               they attack and multiply. This invasion, called an infection, is what causes illness. 
                               Our immune system uses several tools to fight infection. Blood contains red cells, 
                               which carry oxygen to tissues and organs, and white or immune cells, 
                               which fight infection. Different types of white blood cells fight infection in different ways:",
-                                  h4("1.  Macrophages are white blood cells that swallow up and digest germs and dead or dying cells. The macrophages leave behind parts of the invading germs, called 'antigens'. 
+                                  ("1.  Macrophages are white blood cells that swallow up and digest germs and dead or dying cells. The macrophages leave behind parts of the invading germs, called 'antigens'. 
                               The body identifies antigens as dangerous and stimulates antibodies to attack them."), 
-                                  h4("2.  B-lymphocytes are defensive white blood cells. They produce antibodies that attack 
+                                  ("2.  B-lymphocytes are defensive white blood cells. They produce antibodies that attack 
                               the pieces of the virus left behind by the macrophages."), 
-                                  h4("3.  T-lymphocytes are another type of defensive white blood cell. They attack cells in the body that have already been 
+                                  ("3.  T-lymphocytes are another type of defensive white blood cell. They attack cells in the body that have already been 
                                infected."), br(),
-                                  h4("The first time a person is infected with the virus that causes COVID-19, it can take several days or weeks for their body to make and use all the germ-fighting tools needed 
+                                  ("The first time a person is infected with the virus that causes COVID-19, it can take several days or weeks for their body to make and use all the germ-fighting tools needed 
                               to get over the infection. After the infection, the person's immune system remembers what it learned about how to protect the body against that disease. The body keeps a few 
                               T-lymphocytes, called 'memory cells', that go into action quickly if the body encounters the same virus again. When the familiar antigens are detected, B-lymphocytes produce 
                               antibodies to attack them. Experts are still learning how long these memory cells protect a person against the virus that causes COVID-19."),br(),
-                                  h2("Understanding How COVID-19 Vaccines Work"), br(),
-                                  h4("Different types of vaccines work in different ways to offer protection. But with all types of vaccines, the body is left with a supply of 'memory' 
+                                  h3("Understanding How COVID-19 Vaccines Work"), br(),
+                                  ("Different types of vaccines work in different ways to offer protection. But with all types of vaccines, the body is left with a supply of 'memory' 
                               T-lymphocytes as well as B-lymphocytes that will remember how to fight that virus in the future. It typically takes a few weeks after vaccination for the body to produce 
                               T-lymphocytes and B-lymphocytes. Therefore, it is possible that a person could be infected with the virus that causes COVID-19 just before or just after vaccination and then 
                               get sick because the vaccine did not have enough time to provide protection."),
-                                  h4("It typically takes a few weeks after vaccination for the body to produce T-lymphocytes and B-lymphocytes. Therefore, it is possible that a person could be infected with the 
+                                  ("It typically takes a few weeks after vaccination for the body to produce T-lymphocytes and B-lymphocytes. Therefore, it is possible that a person could be infected with the 
                               virus that causes COVID-19 just before or just after vaccination and then get sick because the vaccine did not have enough time to provide protection."),
-                                  h4("Sometimes after vaccination, the process of building immunity can cause symptoms, such as fever. These symptoms are normal and are signs that the body is building immunity. 
+                                  ("Sometimes after vaccination, the process of building immunity can cause symptoms, such as fever. These symptoms are normal and are signs that the body is building immunity. 
                               Talk to a doctor about taking over-the-counter medicine, such as ibuprofen, acetaminophen, aspirin (only for people age 18 or older), or antihistamines for any pain and discomfort 
                               experienced after getting vaccinated."))
              )
