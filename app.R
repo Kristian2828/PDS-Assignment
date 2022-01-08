@@ -142,20 +142,20 @@ tabPanel("Vaccinnation", value = "Vaccination",
                          tabPanel(strong("Vaccination Plot"), br(), br(), plotlyOutput(outputId = "Agraph"),
                                   br(),br(),
                                   plotlyOutput(outputId = "Tgraph")),
-                         tabPanel("Vaccination Table", strong(em("COVID-19 VACCINATIONS IN SOUTH EAST ASIA")),br(), 
+                         tabPanel("Vaccination Table", strong(em("COVID-19 VACCINATIONS IN SOUTH EAST ASIA")),br(),br(),br(),
                                   DT::dataTableOutput("table_vaccine")),
                          tabPanel("About Vaccine", strong(h3("The Immune System - the Body's Defense Against Infection")),br(),
                                   "To understand how COVID-19 vaccines work, it helps to first look at how our bodies fight illness. When germs, such as the virus that causes COVID-19, invade our bodies, 
                               they attack and multiply. This invasion, called an infection, is what causes illness. 
                               Our immune system uses several tools to fight infection. Blood contains red cells, 
                               which carry oxygen to tissues and organs, and white or immune cells, 
-                              which fight infection.", br(), "Different types of white blood cells fight infection in different ways:",br(),
+                              which fight infection.", br(), br(), strong("Different types of white blood cells fight infection in different ways:"),br(),br(),
                                   "1.  Macrophages are white blood cells that swallow up and digest germs and dead or dying cells. The macrophages leave behind parts of the invading germs, called 'antigens'. 
                               The body identifies antigens as dangerous and stimulates antibodies to attack them.", br(),
                                   "2.  B-lymphocytes are defensive white blood cells. They produce antibodies that attack
                               the pieces of the virus left behind by the macrophages.", br(),
                                   "3.  T-lymphocytes are another type of defensive white blood cell. They attack cells in the body that have already been 
-                               infected.", br(),
+                               infected.", br(),br(),
                                   ("The first time a person is infected with the virus that causes COVID-19, it can take several days or weeks for their body to make and use all the germ-fighting tools needed 
                               to get over the infection. After the infection, the person's immune system remembers what it learned about how to protect the body against that disease. The body keeps a few 
                               T-lymphocytes, called 'memory cells', that go into action quickly if the body encounters the same virus again. When the familiar antigens are detected, B-lymphocytes produce 
