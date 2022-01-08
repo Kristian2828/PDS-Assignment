@@ -108,9 +108,9 @@ tabPanel("Vaccinnation", value = "Vaccination",
            
            sidebarPanel(
              
-             h2("COVID-19 Vaccinations in South East Asia"),
+             h2("COVID-19 Vaccinations in SEA"),
              
-             br(),br(),
+            
              selectInput(inputId = "country", label = "Please choose your country.",
                          choices = levels(vaccinedata$Entity)),
             
@@ -142,7 +142,7 @@ tabPanel("Vaccinnation", value = "Vaccination",
                          tabPanel("Vaccination Plot", br(), br(), plotlyOutput(outputId = "Agraph"),
                                   br(),br(),
                                   plotlyOutput(outputId = "Tgraph")),
-                         tabPanel("Vaccination Table", h4("Vaccinations for COVID-19 in SEA"), 
+                         tabPanel("Vaccination Table", h4("Vaccinations for COVID-19 in South East Asia"), 
                                   DT::dataTableOutput("table_vaccine")),
                          tabPanel("About Vaccine", strong(h2("The Immune System - the Body's Defense Against Infection")),br(),
                                   h4("To understand how COVID-19 vaccines work, it helps to first look at how our bodies fight illness. When germs, such as the virus that causes COVID-19, invade our bodies, 
