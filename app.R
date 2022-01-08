@@ -108,29 +108,28 @@ tabPanel("Vaccinnation", value = "Vaccination",
            
            sidebarPanel(
              
-             h2("Vaccinations for COVID-19 in South East Asia"),
+             h2("COVID-19 Vaccinations in South East Asia"),
              
              br(),br(),
              selectInput(inputId = "country", label = "Please choose your country.",
                          choices = levels(vaccinedata$Entity)),
-             
-             br(),
+            
              selectInput(inputId = "category", label = "Please choose your category.",
                          choices = c("Partially_vaccinated", "Fully_vaccinated")),
              
-             br(),
+             
              dateRangeInput(inputId = "date", label = "Please specify your date range.",
                             start = min(vaccinedata$Date),
                             end   = max(vaccinedata$Date)),
              
-             br(),
+          
              checkboxInput(inputId = "summarybox",
                            label = strong("Show Summary"),
                            value = FALSE),
              
              verbatimTextOutput("stats"),
              
-             br(),
+          
              
              downloadButton(outputId = "download_data_vaccine", label = "Download"),br(),br(), em("Data is retrieved from www.worldometers.info"),
              
