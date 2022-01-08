@@ -155,7 +155,7 @@ tabPanel("Vaccinnation", value = "Vaccination",
                                   "2.  B-lymphocytes are defensive white blood cells. They produce antibodies that attack
                               the pieces of the virus left behind by the macrophages.", br(),
                                   "3.  T-lymphocytes are another type of defensive white blood cell. They attack cells in the body that have already been 
-                               infected."), br(),
+                               infected.", br(),
                                   ("The first time a person is infected with the virus that causes COVID-19, it can take several days or weeks for their body to make and use all the germ-fighting tools needed 
                               to get over the infection. After the infection, the person's immune system remembers what it learned about how to protect the body against that disease. The body keeps a few 
                               T-lymphocytes, called 'memory cells', that go into action quickly if the body encounters the same virus again. When the familiar antigens are detected, B-lymphocytes produce 
