@@ -103,7 +103,7 @@ chest pain.",br(),
     )
   )),
   
-tabPanel("Vaccinnation", value = "Vaccination",
+tabPanel("Vaccination", value = "Vaccination",
          sidebarLayout(
            
            sidebarPanel(
