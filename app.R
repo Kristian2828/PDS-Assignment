@@ -194,7 +194,7 @@ tabPanel("Vaccinnation", value = "Vaccination",
                ),
                mainPanel(
                  plotlyOutput(outputId = "plot_eco"), br(),
-                 strong(em("COVID-19 Economic Impact in SEA")),
+                 strong(em("COVID-19 ECONOMIC IMPACT IN SOUTH EAST ASIA")),
                  br(), br(), br(),
                  DT::dataTableOutput(outputId = "table_eco")
                )
