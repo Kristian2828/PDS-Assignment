@@ -45,7 +45,7 @@ The virus can spread from an infected person’s mouth or nose in small liquid p
         
         mainPanel(
           tabsetPanel(
-            tabPanel(strong("Prevention"), strong("To prevent infection and to slow transmission of COVID-19, do the following:"), br(),br(),
+            tabPanel(strong("Prevention"), strong(h3("To prevent infection and to slow transmission of COVID-19, do the following:")), br(),br(),
 "1. Get vaccinated when a vaccine is available to you.", br(),
 "2. Stay at least 1 metre apart from others, even if they don't appear to be sick.", br(),
 "3. Wear a properly fitted mask when physical distancing is not possible or when in poorly ventilated settings.", br(),
@@ -54,14 +54,14 @@ The virus can spread from an infected person’s mouth or nose in small liquid p
 "6. Cover your mouth and nose when coughing or sneezing.", br(),
 "7. If you feel unwell, stay home and self-isolate until you recover."),
             
-            tabPanel(strong("Symptoms"),strong(em("COVID-19")), "affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.",
+            tabPanel(strong("Symptoms"),h3(strong(em("COVID-19")), "affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization."),
 
-strong(h5("Most common symptoms:")),
+strong(h4("Most common symptoms:")),
 
 "1. Fever",br(),"2. Cough",br(),"3. Tiredness",br(),"4. Loss of taste or smell.",br(),"5. Less common symptoms:",br(), "6. Sore throat",br(),"7. Headache", "8. Aches and pains", br(),"9. Diarrhoea",
 br(),"9. A rash on skin, or discolouration of fingers or toes", br(), "10. Red or irritated eyes.",
 br(),
-strong(h5("Serious symptoms:")),
+strong(h4("Serious symptoms:")),
 
 "1. Difficulty breathing or shortness of breath
 loss of speech or mobility, or confusion
