@@ -179,7 +179,7 @@ tabPanel("Vaccinnation", value = "Vaccination",
            
              sidebarLayout(
                sidebarPanel(
-                 h1("ASEAN Economic Impact under Covid-19 Pandemic"),
+                 h1("COVID-19 Economic Impact in SEA"),
                  selectInput(inputId = "eco_factor", label = "Category",
                              choices = c("GDP","Unemployment_Rate", "Index_Movement"),
                              selected = "New_Cases"),
@@ -190,11 +190,11 @@ tabPanel("Vaccinnation", value = "Vaccination",
                              choices = eco_data$Country,
                              multiple = TRUE,
                              selected = c("Malaysia")),
-                 downloadButton(outputId = "download_data_eco", label = "Download"),
+                 downloadButton(outputId = "download_data_eco", label = "Download"),br(),br(), em("Data is retrieved from www.worldometers.info"),
                ),
                mainPanel(
                  plotlyOutput(outputId = "plot_eco"), br(),
-                 strong(em("Economic Impact under Covid-19 Pandemic")),
+                 strong(em("COVID-19 Economic Impact in SEA")),
                  br(), br(), br(),
                  DT::dataTableOutput(outputId = "table_eco")
                )
