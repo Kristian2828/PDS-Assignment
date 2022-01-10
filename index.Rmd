@@ -1,0 +1,153 @@
+---
+title       : COVID-19 in South East Asia
+subtitle    : Group Project - R Web Apps Using Shiny (WQD7001)
+author      : Group 4
+job         : Muhammad Ezlan Zakhir Khan (S2116731), Muhammad Amirul Daniel Badrul Hisham (S2115750), Kristian Surya Dinata (S2043845), Shu Meei Law (S2117388), Eva Ying Ying Chin (S2115794)
+framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [shiny, interactive]  # {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: [libraries/nvd3]}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction - The Development of Data Product
+
+Application : Covid-19 trend to the economic impact in ASEAN Countries (2019 - 2021)
+The repository consists of three final files:
+- ui.R
+- server.R
+- README.md
+
+Data file:
+- covid_data.csv
+- Economic_data.csv
+- VaccineData.csv
+
+For more details, please visit:
+- Shiny Apps: 
+- GitHub: https://github.com/Kristian2828/PDS-Assignment
+
+--- .class #id 
+
+## R Shiny Apps - ui.R
+Below shown part of the coding extracted from ui.R:
+```{r}
+ui <- fluidPage(
+    tabPanel("Cases", value = "Cases",
+             sidebarLayout(
+               sidebarPanel(
+                 h1("COVID-19 in South East Asia"),
+                 selectInput(inputId = "dv", label = "Category",
+                             choices = c("Total_Cases","New_Cases", "Total_Death","New_Death"),
+                             selected = "New_Cases"),
+                 selectInput(inputId = "Country", "Country(s)",
+                             choices = levels(covid$Country),
+                             multiple = TRUE,
+                             selected = c("Malaysia")),
+                 dateRangeInput(inputId = "date", "Date range",
+                                start = min(covid$Date),
+                                end   = max(covid$Date)),
+                 downloadButton(outputId = "download_data", label = "Download"),
+               ),
+               mainPanel(
+                 plotlyOutput(outputId = "plot"), br(),
+                 strong(em("COVID-19 CASES IN SOUTH EAST ASIA")),
+                 br(), br(), br(),
+                 DT::dataTableOutput(outputId = "table")
+               )
+             )),)
+```
+
+--- .class #id 
+## R Shiny Apps - server.R
+Below shown part of the coding extracted from server.R:
+```{r}
+server <- function(input, output) {
+  filtered_data <- reactive({
+    subset(covid,
+           Country %in% input$Country &
+             Date >= input$date[1] & Date <= input$date[2])})
+  
+  output$plot <- renderPlotly({
+    ggplotly({
+      p <- ggplot(filtered_data(), aes_string(x="Date", y=input$dv, color="Country")) +
+        geom_point(alpha=0.5) + theme(legend.position = "none") +
+        ylab("Total Number")
+      p
+    })
+  })
+  }
+```
+
+--- .class #id
+## R Shiny Visualization
+Below shown one example of the R Shiny visualization in our data product:
+```{r echo = F, results = 'asis'}
+require(rCharts)
+## Read files
+covid = read.csv("C:/Users/evach/OneDrive/Documents/covid_data.csv", sep = ';')
+
+## Change/update the variable structure
+covid$Date = as.Date(covid$Date)
+covid$Country = as.factor(covid$Country)
+
+
+n1 <- nPlot(New_Cases ~ Date, group = 'Country', type = 'scatterPlusLineChart',
+  data = covid)
+n1$print('chart1')
+```
+---
+```{r, echo=FALSE}
+library(shiny)
+library(plotly)
+library(DT)
+library(shinythemes)
+library(ggcorrplot)
+library(correlation)
+
+## Read files
+covid = read.csv("C:/Users/evach/OneDrive/Documents/covid_data.csv", sep = ';')
+eco_data <- read.csv("C:/Users/evach/OneDrive/Documents/Economic_Data.csv")
+covid$Date = as.Date(covid$Date)
+covid$Country = as.factor(covid$Country)
+vaccinedata <- read.csv("C:/Users/evach/OneDrive/Documents/VaccineData.csv", header = TRUE, sep = ",")
+vaccinedata$Date <- strptime(as.character(vaccinedata$Date),format="%d/%m/%Y")
+vaccinedata$Date <- as.POSIXct(vaccinedata$Date)
+vaccinedata$Date <- as.Date(vaccinedata$Date)
+vaccinedata$Entity <- as.factor(vaccinedata$Entity)
+
+
+## Change/update the variable structure
+covid$Date = as.Date(covid$Date)
+covid$Country = as.factor(covid$Country)
+eco_data$Country = as.factor(eco_data$Country)
+eco_data$Date = as.Date(eco_data$Date)
+```
+
+```{r opts.label = 'shiny'}
+slidifyUI(
+  sidebarPanel(
+    h1("COVID-19 in South East Asia"),
+    selectInput(inputId = "dv", label = "Category",
+                choices = c("Total_Cases","New_Cases", "Total_Death","New_Death"),
+                selected = "New_Cases"),
+    selectInput(inputId = "Country", "Country(s)",
+                choices = levels(covid$Country),
+                multiple = TRUE,
+                selected = c("Malaysia")),
+    dateRangeInput(inputId = "date", "Date range",
+                   start = min(covid$Date),
+                   end   = max(covid$Date)),
+    downloadButton(outputId = "download_data", label = "Download"),
+  ),
+  mainPanel(
+    plotlyOutput(outputId = "plot"), br(),
+    strong(em("COVID-19 CASES IN SOUTH EAST ASIA")),
+    br(), br(), br(),
+    DT::dataTableOutput(outputId = "table")
+  )
+)
+```
+---
