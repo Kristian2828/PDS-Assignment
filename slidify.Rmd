@@ -1,0 +1,74 @@
+---
+title: "COVID-19 in South East Asia "
+author: "Muhammad Ezlan Zakhir Khan (S2116731), Muhammad Amirul Daniel Badrul Hisham (S2115750), Kristian Surya Dinata (S2043845), Shu Meei Law (S2117388), Eva Ying Ying Chin (S2115794)"
+date: "24/01/2022"
+output: slidy_presentation
+---
+
+## Introduction
+
+**Domain**:
+Healthcare -Covid-19 in ASEAN Countries
+
+- Thailand, Singapore, Malaysia, Vietnam, Indonesia & Philippines
+
+**Objective**:
+
+- To present the general overview of COVID-19 issues in South East Asia.
+- To evaluate the pattern of COVID-19 cases, vaccination, and economy condition in South East Asia.
+- To find a significant correlation between COVID-19 cases, vaccination, and economy.
+
+**Research questions**:
+
+- How effective is vaccination in ASEAN region in handling COVID-19 pandemic?
+- What is the statistical trend in ASEAN region for COVID-19 confirmed cases?
+- How does the pandemic affect the economy in ASEAN region?
+- How does this product help the involved beneficiaries in making decision?
+
+---
+
+## Methodologies
+
+Formulating questions > data gathering > data cleaning >  data visualize
+
+
+
+**Sources of data**:
+
+Covid-19 related data (e.g. confirmed cases, vaccination numbers, mortality, etc.) and
+economy related data (e.g. GDP, Unemployment Rate, Index, etc.). These data are collected
+from web, including the sources below:
+
+- Trading Economics (https://tradingeconomics.com/malaysia/)
+- Our world in data (https://ourworldindata.org/covid-cases)
+- WHO (https://covid19.who.int/)
+- WorldoMeter (https://www.worldometers.info/coronavirus/)
+- Investing.com (https://www.investing.com/news/economic-indicators)
+
+
+---
+
+## Summary
+
+**Application**: 
+
+Covid-19 trend to the economic impact in ASEAN Countries (2019 - 2021).
+
+The repository consists of two final files:
+
+- app.R
+- README.md
+
+**Data file**:
+
+- covid_data.csv
+- Economic_data.csv
+- VaccineData.csv
+
+**For more details, please visit**:
+
+- Shiny Apps: https://amiruldaniel0224.shinyapps.io/PDSProject/
+- GitHub: https://github.com/Kristian2828/PDS-Assignment
+
+
+ ---
