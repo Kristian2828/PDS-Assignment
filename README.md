@@ -6,3 +6,6 @@ If you want to run the app, copy this to your R studio:
 library(shiny)
 
 runGitHub(repo = "PDS-Assignment", username = "Kristian2828", ref = "main")
+
+Slidify : https://rpubs.com/MuhdEzlan/857080
+Shiny app : https://amiruldaniel0224.shinyapps.io/PDSProject/
