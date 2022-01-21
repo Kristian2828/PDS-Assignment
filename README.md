@@ -7,5 +7,5 @@ library(shiny)
 
 runGitHub(repo = "PDS-Assignment", username = "Kristian2828", ref = "main")
 
-Slidify : https://rpubs.com/MuhdEzlan/857080
+Slidify : https://rpubs.com/danieelll__/857144
 Shiny app : https://amiruldaniel0224.shinyapps.io/PDSProject/
